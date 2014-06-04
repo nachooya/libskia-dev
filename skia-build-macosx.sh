@@ -15,7 +15,13 @@ git checkout master
 ./gyp_skia
 make -j skia_lib BUILDTYPE=Release
 
-./skia/tools/merge_static_libs.py /usr/local/lib/libskia.a skia/out/Release/*.a
+cd out/gyp
+xcodebuild  -project ktx.xcodeproj/  -configuration Release
+xcodebuild  -project libjpeg.xcodeproj/  -configuration Release
+xcodebuild  -project etc1.xcodeproj/  -configuration Release
+cd ../..
+
+./skia/tools/merge_static_libs.py /usr/local/lib/libskia.a skia/out/Release/*.a skia/xcodebuild/Release/*.a
 
 mkdir -p /usr/local/include/skia
 for i in `find skia/include -iname '*.h'`;
@@ -26,8 +32,3 @@ done
 cp skia/src/ports/SkAtomics_sync.h /usr/local/include/skia/
 cp skia/src/ports/SkMutex_pthread.h /usr/local/include/skia/
 cp skia/src/ports/SkBarriers_x86.h /usr/local/include/skia/
-
-
-#cd out/gyp
-#make -f libjpeg.Makefile BUILDTYPE=Release
-#cd ../..
