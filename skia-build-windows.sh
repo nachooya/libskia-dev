@@ -32,6 +32,6 @@ do
 	cp $i /local/include/skia/;
 done
 
-cp skia/src/ports/SkAtomics_sync.h /local/include/skia/
-cp skia/src/ports/SkMutex_pthread.h /local/include/skia/
+cp skia/src/ports/SkAtomics_win.h /local/include/skia/
+cp skia/src/ports/SkMutex_win.h /local/include/skia/
 cp skia/src/ports/SkBarriers_x86.h /local/include/skia/
