@@ -1,0 +1,26 @@
+diff --git a/gyp/angle.gyp b/gyp/angle.gyp
+index 616de1e..471c415 100644
+--- a/gyp/angle.gyp
++++ b/gyp/angle.gyp
+@@ -34,7 +34,7 @@
+         'skia_warnings_as_errors': 0,
+       },
+       'includes': [
+-        '../third_party/externals/angle/src/build_angle.gypi',
++        '../third_party/externals/angle2/src/build_angle.gyp',
+       ],
+     }],
+   ],
+diff --git a/src/core/SkPaint.cpp b/src/core/SkPaint.cpp
+index 236bbbd..84269be 100644
+--- a/src/core/SkPaint.cpp
++++ b/src/core/SkPaint.cpp
+@@ -1772,7 +1772,7 @@ static const SkMaskGamma& cachedMaskGamma(SkScalar contrast, SkScalar paintGamma
+         gMaskGamma = SkNEW_ARGS(SkMaskGamma, (contrast, paintGamma, deviceGamma));
+         gContrast = contrast;
+         gPaintGamma = paintGamma;
+-        gDeviceGamma = deviceGamma;
++        //gDeviceGamma = deviceGamma;
+     }
+     return *gMaskGamma;
+ }
