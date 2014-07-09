@@ -11,6 +11,7 @@ gclient config --name . https://skia.googlesource.com/skia.git
 gclient sync
 git checkout master
 git checkout reset --hard c05d2859e10f4e1fb0c6486eebfbe88801202648
+git apply ../sezion.patch
 
 ./gyp_skia
 make -j skia_lib BUILDTYPE=Release
